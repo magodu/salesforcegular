@@ -1,0 +1,38 @@
+
+<apex:page sidebar="false" id="salesforcegular" lightningStylesheets="true" showHeader="true" sideBar="false" docType="html-5.0" controller="salesforcegularController" >
+	<head>
+		<meta charset="utf-8"/>
+		<title>Salesforcegular</title>
+		<base href="/"/>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="icon" type="image/x-icon" href="http://localhost:4200/favicon.ico"/>
+
+	    <script>
+			// For the images in the resources:
+			gSfStaticRoot = "{!URLFOR($Resource.salesforcegularStaticResources, 'favicon.ico')}";
+
+			if (!(gSfStaticRoot[0] === '{')) { //in local mode this will not have been replaced
+				gSfStaticRoot = gSfStaticRoot.substr(0, gSfStaticRoot.lastIndexOf('/')) + '/';
+			} else {
+				gSfStaticRoot = '';
+			}
+			function getSfStaticResourceRoot() {
+				return gSfStaticRoot;
+			}
+			// For Routing:
+			gSfPageRoot = 'apex/salesforcegular';
+
+			function getSfPageRoot() {
+				return gSfPageRoot;
+			}
+
+		</script>
+	</head>
+	<body>
+		<app-root></app-root>
+	<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es5.js" nomodule defer></script><script type="text/javascript">
+                                window._VfResources = 'http://localhost:4200';
+                              </script>
+                  </body>
+</apex:page>

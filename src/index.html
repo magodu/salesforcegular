@@ -1,14 +1,35 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>AngularSf</title>
-  <base href="/">
+	<head>
+		<meta charset="utf-8">
+		<title>Salesforcegular</title>
+		<base href="/">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+	    <script>
+			// For the images in the resources:
+			gSfStaticRoot = "{!URLFOR($Resource.salesforcegularStaticResources, 'favicon.ico')}";
+
+			if (!(gSfStaticRoot[0] === '{')) { //in local mode this will not have been replaced
+				gSfStaticRoot = gSfStaticRoot.substr(0, gSfStaticRoot.lastIndexOf('/')) + '/';
+			} else {
+				gSfStaticRoot = '';
+			}
+			function getSfStaticResourceRoot() {
+				return gSfStaticRoot;
+			}
+			// For Routing:
+			gSfPageRoot = 'apex/salesforcegular';
+
+			function getSfPageRoot() {
+				return gSfPageRoot;
+			}
+
+		</script>
+	</head>
+	<body>
+		<app-root></app-root>
+	</body>
 </html>
