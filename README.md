@@ -94,6 +94,6 @@ Inside your Salesforce org add an Apex class named sftestcontroller:
     }
 
 
-    ## Credits
+## Credits
 
-    Project based in articles from Alexandr Havrilov, Andres Rutnik and Danilo Cardoso. Thank you guys.
+Project based in articles from Alexandr Havrilov, Andres Rutnik and Danilo Cardoso. Thank you guys.
