@@ -5,9 +5,7 @@ var zip = require('gulp-zip');
 var rename = require("gulp-rename");
 var replace = require('gulp-replace');
 var file = require('gulp-file');
-var debug = require('gulp-debug');
 var dotenv = require('dotenv');
-var nodemon = require('nodemon');
 dotenv.config();
 
 // define variables from process.env
@@ -71,18 +69,17 @@ gulp.task('create-package', function () {
 gulp.task('page_to_prod', function () {
   console.log('***************** page_to_prod task ******************** ');
 
-  gulp.src([distPath+'/index.html'])
+  gulp.src([distPath + '/index.html'])
     .pipe(replace('<!doctype html>', ''))
     .pipe(replace('<html lang="en">', `<apex:page ${otherPageAttrs} ${controller} ${extensions}>`))
     .pipe(replace(`<base href="${baseHref}">`, `<base href="${baseHref}"/>`))
     .pipe(replace('<meta charset="utf-8">', `<meta charset="utf-8"/>`))
     .pipe(replace('initial-scale=1">', `initial-scale=1"/>`))
     .pipe(replace('href="favicon.ico">', `href="{!URLFOR($Resource.${resources}, 'favicon.ico')}"/>`))
-    .pipe(replace(`<script src="`, `<script src="{!URLFOR($Resource.${resources}, '`))
-    .pipe(replace(`.js" type="module"></script>`, `.js')}" type="module"></script>`))
-    .pipe(replace(`.js" nomodule defer></script>`, `.js')}" nomodule defer></script>`))
+    .pipe(replace(`<script type="text/javascript" src="`, `<script type="text/javascript" src="{!URLFOR($Resource.${resources}, '`))
+    .pipe(replace(`.js"></script>`, `.js')}"></script>`))
+    .pipe(replace(`.js" nomodule></script>`, `.js')}" nomodule></script>`))
     .pipe(replace(`nomodule`, `nomodule=""`))
-    .pipe(replace(`defer`, `defer=""`))
     .pipe(replace('</body>', `<script type="text/javascript">
     window._VfResources = '{!URLFOR($Resource.${resources})}';
     </script></body>`))
@@ -104,8 +101,11 @@ gulp.task('page_to_dev', function () {
     .pipe(replace(`<base href="${baseHref}">`, `<base href="${baseHref}"/>`))
     .pipe(replace('<meta charset="utf-8">', `<meta charset="utf-8"/>`))
     .pipe(replace('initial-scale=1">', `initial-scale=1"/>`))
-    .pipe(replace('href="favicon.ico">', `href="${devResources}/favicon.ico"/>`))
-    .pipe(replace(`<script type="text/javascript" src="`, `<script type="text/javascript" src="${devResources}/`))
+    .pipe(replace(`<script type="text/javascript" src="`, `<script type="text/javascript" src="{!URLFOR($Resource.${resources}, '`))
+    .pipe(replace(`.js"></script>`, `.js')}"></script>`))
+    .pipe(replace(`nomodule`, `nomodule=""`))
+    .pipe(replace(`nomodule`, `nomodule=""`))
+    .pipe(replace(`defer`, `defer=""`))
     .pipe(replace('</body>', `<script type="text/javascript">
                                 window._VfResources = '${devResources}';
                               </script>

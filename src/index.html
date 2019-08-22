@@ -1,35 +1,36 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Salesforcegular</title>
-		<base href="/">
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <meta charset="utf-8">
+  <title>Testangular7</title>
+  <base href="/">
 
-	    <script>
-			// For the images in the resources:
-			gSfStaticRoot = "{!URLFOR($Resource.salesforcegularStaticResources, 'favicon.ico')}";
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
 
-			if (!(gSfStaticRoot[0] === '{')) { //in local mode this will not have been replaced
-				gSfStaticRoot = gSfStaticRoot.substr(0, gSfStaticRoot.lastIndexOf('/')) + '/';
-			} else {
-				gSfStaticRoot = '';
-			}
-			function getSfStaticResourceRoot() {
-				return gSfStaticRoot;
-			}
-			// For Routing:
-			gSfPageRoot = 'apex/salesforcegular';
+<script>
+	// For the images in the resources:
+	gSfStaticRoot = "{!URLFOR($Resource.salesforcegularStaticResources, 'favicon.ico')}";
 
-			function getSfPageRoot() {
-				return gSfPageRoot;
-			}
+	if (!(gSfStaticRoot[0] === '{')) { //in local mode this will not have been replaced
+		gSfStaticRoot = gSfStaticRoot.substr(0, gSfStaticRoot.lastIndexOf('/')) + '/';
+	} else {
+		gSfStaticRoot = '';
+	}
+	function getSfStaticResourceRoot() {
+		return gSfStaticRoot;
+	}
+	// For Routing:
+	gSfPageRoot = 'apex/salesforcegular';
 
-		</script>
-	</head>
-	<body>
-		<app-root></app-root>
-	</body>
+	function getSfPageRoot() {
+		return gSfPageRoot;
+	}
+
+</script>
+
+<body>
+  <app-root></app-root>
+</body>
 </html>

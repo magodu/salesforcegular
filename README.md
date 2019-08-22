@@ -1,6 +1,6 @@
 # Salesforcegular
 
-This repo contains a demonstration of loading an Angular 8 app inside a Visualforce page, including support for static assets, Apex controller access and router deep links.
+This repo contains a demonstration of loading an Angular 7 app inside a Visualforce page, including support for static assets, Apex controller access and router deep links.
 
 ```
 Important!
