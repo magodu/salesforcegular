@@ -2,7 +2,7 @@
 <apex:page sidebar="false" id="salesforcegular" lightningStylesheets="true" showHeader="true" sideBar="false" docType="html-5.0" controller="salesforcegularController" >
 <head>
   <meta charset="utf-8"/>
-  <title>Testangular7</title>
+  <title>Salesforcegular</title>
   <base href="/"/>
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
